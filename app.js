@@ -6,6 +6,7 @@ const PORT = 3000;
 
 const server = http.createServer((req, res) => {
   console.log('Server request');
+  console.log('just for test request');
 
   res.setHeader('Content-Type', 'text/html');
 
@@ -20,6 +21,7 @@ const server = http.createServer((req, res) => {
       res.statusCode = 200;
       break;
     case '/about-us':
+      //redirect
       res.statusCode = 301;
       res.setHeader('Location', '/contacts');
       res.end();
@@ -27,6 +29,7 @@ const server = http.createServer((req, res) => {
     case '/contacts':
       basePath = createPath('contacts');
       res.statusCode = 200;
+      
       break;
     default:
       basePath = createPath('error');
